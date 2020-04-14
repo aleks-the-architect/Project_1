@@ -71,6 +71,16 @@ int  main ()
 {
 	setlocale(LC_ALL, "RUS");
 	
+
+	int arr [3];
+	arr [0] = 2;
+	arr[1] = 5;
+	arr[2] = 8;
+	cout << arr [0, 1, 2];
+
+
+
+
 	/*int v1, v2;
 	char v3;
 	
@@ -84,7 +94,7 @@ int  main ()
 	} */
 	
 
-	char a;
+	/*char a;
 	int width;
 	int height;
 
@@ -103,10 +113,7 @@ int  main ()
 		{
 			cout << a << "_" ;
 		}
-	}
-
-
-
+	} */
 
 
 	/*char a;
@@ -137,8 +144,7 @@ int  main ()
 		i = 1;
 	} */
 
-
-	/*_ASSERT(hor_vert == 1); */
+	
 
 	//cout << "¬ведите x:  ";
 	//cin >> v1;
@@ -150,5 +156,5 @@ int  main ()
 	//int a = compare (v1, v2, v3);
 	//int b = arithmetic (v1, v2, v3);
 
-	 
+	 /*_ASSERT(hor_vert == 1); */
 	}
