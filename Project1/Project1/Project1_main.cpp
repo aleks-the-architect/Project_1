@@ -101,7 +101,7 @@ int  main ()
 
 		for (int j = 1; j <= width; j++)
 		{
-			cout << a << "|_" ;
+			cout << a << "_" ;
 		}
 	}
 
