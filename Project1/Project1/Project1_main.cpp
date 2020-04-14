@@ -71,16 +71,27 @@ int  main ()
 {
 	setlocale(LC_ALL, "RUS");
 	
+	//array//
+	const int arr_size = 10;
 
-	int arr [3];
-	arr [0] = 2;
-	arr[1] = 5;
-	arr[2] = 8;
-	cout << arr [0, 1, 2];
+	float arr [arr_size];
+	
+	for (int i = 0 ; i < arr_size ; i++) 
+	{
+		int a = i + 10;
+		float b = a / 2.1;
+		arr [i] = b;
+	}
+
+	for (int k = 0; k < arr_size; k++)
+	{
+		cout  << arr[k] << "   ";
+	}
+	cout << N_LINE << sizeof(arr) / sizeof(arr[0]);
 
 
 
-
+	//call function//
 	/*int v1, v2;
 	char v3;
 	
@@ -93,7 +104,18 @@ int  main ()
 		i++;
 	} */
 	
+	//call function
+/*cout << "¬ведите x:  ";
+cin >> v1;
+cout << "¬ведите y:  ";
+cin >> v2;
+cout << "¬ведите оператор:  ";
+cin >> v3;
 
+//int a = compare (v1, v2, v3);
+//int b = arithmetic (v1, v2, v3); */
+
+	//loop//
 	/*char a;
 	int width;
 	int height;
@@ -115,7 +137,7 @@ int  main ()
 		}
 	} */
 
-
+	//condition//
 	/*char a;
 	int n_repeat;
 	int hor_vert;
@@ -144,17 +166,7 @@ int  main ()
 		i = 1;
 	} */
 
-	
 
-	//cout << "¬ведите x:  ";
-	//cin >> v1;
-	//cout << "¬ведите y:  ";
-	//cin >> v2;
-	//cout << "¬ведите оператор:  ";
-	//cin >> v3;
-
-	//int a = compare (v1, v2, v3);
-	//int b = arithmetic (v1, v2, v3);
 
 	 /*_ASSERT(hor_vert == 1); */
 	}
