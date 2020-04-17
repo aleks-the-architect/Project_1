@@ -1,6 +1,7 @@
 
 #include<iostream>
 #include<math.h>
+#include<ctime>
 
 
 
@@ -14,7 +15,7 @@ const char  TAB = '\t';
 const char  N_LINE = '\n';
 
 
- int compare (int x, int y, int z)  // сравнение чисел 
+/* int compare (int x, int y, int z)  // сравнение чисел 
 {
 	 x = x % 2;
 
@@ -62,7 +63,7 @@ const char  N_LINE = '\n';
 	 }
 
 	 return 0;
- }
+ } */
 
 
 
@@ -71,23 +72,25 @@ int  main ()
 {
 	setlocale(LC_ALL, "RUS");
 	
+	srand ( time (NULL));
+	
 	//array//
 	const int arr_size = 10;
 
-	float arr [arr_size];
-	
+	int arr [arr_size];
+
 	for (int i = 0 ; i < arr_size ; i++) 
 	{
-		int a = i + 10;
-		float b = a / 2.1;
-		arr [i] = b;
+	     arr [i] = rand ( ) % 20;
 	}
 
 	for (int k = 0; k < arr_size; k++)
 	{
 		cout  << arr[k] << "   ";
 	}
-	cout << N_LINE << sizeof(arr) / sizeof(arr[0]);
+
+
+	cout << N_LINE << "Количество элементов:  " << sizeof(arr) / sizeof(arr[0]) << endl;
 
 
 
