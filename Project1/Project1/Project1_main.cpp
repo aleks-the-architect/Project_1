@@ -7,10 +7,6 @@
 
 using namespace std;
 
- /* многострочные 
-    комментарии */
-
-
 const char  TAB = '\t';
 const char  N_LINE = '\n';
 
@@ -66,33 +62,83 @@ const char  N_LINE = '\n';
  } */
 
 
+void fillArray(int arr [] , const int size )
+{
+		for (int i = 0; i < size; i++)
+		{
+			arr[i] = i;
+		}
+}
+
+void printArray ( int arr[], const int size )
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << arr[i] << endl;
+	}
+}
+
+int max(int a)
+{
+	int star = 0;
+	for (int i = 0; i < a; i++)
+	{
+		for (int j = 0; j <= i; j++)
+		{
+			cout << "*";
+			star++;
+		}
+		cout << "" << N_LINE;
+	}
+	return star;
+}
 
 
 int  main ()
 {
 	setlocale(LC_ALL, "RUS");
 	
-	srand ( time (NULL));
-	
+	int a = max(5);
+	printf ("Count of stars:  %d\n",  max(a));
+
+
+
+
+	/*srand ( time (NULL));
+	const int SIZE = 10;
+	int arr [SIZE];
+
+	fillArray(arr, SIZE);
+	printArray(arr, SIZE); */
+
 	//array//
-	const int arr_size = 10;
-
-	int arr [arr_size];
-
-	for (int i = 0 ; i < arr_size ; i++) 
+	/*const int ROW = 3;
+	const int COL = 5;
+	int arr [ROW] [COL];
+	
+	for (int i = 0 ; i < ROW ; )
 	{
-	     arr [i] = rand ( ) % 20;
+		for (int j = 0; j < COL; j++)
+		{
+			arr[i][j] = j;
+		}
+		i++;
 	}
 
-	for (int k = 0; k < arr_size; k++)
+	for (int k = 0; k < ROW;)
 	{
-		cout  << arr[k] << "   ";
+		for (int p = 0; p < COL; p++)
+		{
+			int a = 0;
+			cout << arr[a][p] << "   ";
+		}
+		cout << N_LINE;
+		k++;
+		
 	}
+	
 
-
-	cout << N_LINE << "Количество элементов:  " << sizeof(arr) / sizeof(arr[0]) << endl;
-
-
+	/*cout << N_LINE << "Количество элементов:  " << sizeof(arr) / sizeof(arr[0]) << endl; */
 
 	//call function//
 	/*int v1, v2;
