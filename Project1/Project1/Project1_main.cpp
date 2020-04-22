@@ -96,7 +96,7 @@ void printArray ( int arr[], const int size )
 */
 
 //Square
-int print_1str (int w, char a)
+/*int print_1str (int w, char a)
 {
 	int count_s1 = 0;
 	for (int i = 1; i <= w; i++)
@@ -126,6 +126,13 @@ int print_2str(int h, int w, char a)
 		count_s2++;
 	}
 	return count_s2 * 2;
+} */
+
+//Template
+template < class T1, class T2, class T3, class T4 >
+void Temp_Func(T1 a, T2 b, T3 c, T4 d)
+{
+	cout << a << N_LINE << b << N_LINE << c << N_LINE << d << N_LINE;
 }
 
 
@@ -133,8 +140,12 @@ int  main ()
 {
 	setlocale(LC_ALL, "RUS");
 	
+	//Template
+	Temp_Func(true, 0x2F, 3.849, "WOW!!!");
+
+
 	//Square
-	int width;
+	/*int width;
 	int height;
 	char symbol_a;
 	cout << "Enter width:  ";
@@ -149,7 +160,7 @@ int  main ()
 	int b = print_2str(height, width, symbol_a);
 	print_1str(width, symbol_a);
 	cout << N_LINE << "Total number of symbol:  " << a + b << N_LINE;
-
+	*/
 
 	//Triangle
 	/*int n;
@@ -158,8 +169,9 @@ int  main ()
 	int a = n_stars(n);
 	printf ("Count of stars:  %d\n", a ); */
 
-
+	//array//
 	/*srand ( time (NULL));
+
 	const int SIZE = 10;
 	int arr [SIZE];
 
