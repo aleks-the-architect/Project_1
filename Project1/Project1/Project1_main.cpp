@@ -10,7 +10,7 @@ using namespace std;
 const char  TAB = '\t';
 const char  N_LINE = '\n';
 
-
+//arithmetic
 /* int compare (int x, int y, int z)  // сравнение чисел 
 {
 	 x = x % 2;
@@ -61,8 +61,8 @@ const char  N_LINE = '\n';
 	 return 0;
  } */
 
-
-void fillArray(int arr [] , const int size )
+ //array
+/*void fillArray(int arr [] , const int size )
 {
 		for (int i = 0; i < size; i++)
 		{
@@ -76,9 +76,10 @@ void printArray ( int arr[], const int size )
 	{
 		cout << arr[i] << endl;
 	}
-}
+} */
 
-int max(int a)
+//Triangle
+/*int n_stars(int a)
 {
 	int star = 0;
 	for (int i = 0; i < a; i++)
@@ -92,16 +93,70 @@ int max(int a)
 	}
 	return star;
 }
+*/
+
+//Square
+int print_1str (int w, char a)
+{
+	int count_s1 = 0;
+	for (int i = 1; i <= w; i++)
+	{
+		cout << a;
+		count_s1++;
+	}
+	cout << N_LINE;
+	return count_s1 * 2;
+}
+
+//Square
+int print_2str(int h, int w, char a)
+{
+	int str2 = w - 2;
+	int h2 = h - 2;
+	int count_s2 = 0;
+	for (int i = 1; i <= h2; i++)
+	{
+		cout << a;
+		for (int k = 1; k <= str2; k++)
+		{
+			cout << " ";
+			
+		}
+		cout << a << N_LINE;
+		count_s2++;
+	}
+	return count_s2 * 2;
+}
 
 
 int  main ()
 {
 	setlocale(LC_ALL, "RUS");
 	
-	int a = max(5);
-	printf ("Count of stars:  %d\n",  max(a));
+	//Square
+	int width;
+	int height;
+	char symbol_a;
+	cout << "Enter width:  ";
+	cin >> width;
+	cout << "Enter height:  ";
+	cin >> height;
+	cout << "Enter symbol:  ";
+	cin >> symbol_a;
+	cout << N_LINE;
+
+	int a = print_1str(width, symbol_a);
+	int b = print_2str(height, width, symbol_a);
+	print_1str(width, symbol_a);
+	cout << N_LINE << "Total number of symbol:  " << a + b << N_LINE;
 
 
+	//Triangle
+	/*int n;
+	cout << "Height of stars:  " ;
+	cin >> n;
+	int a = n_stars(n);
+	printf ("Count of stars:  %d\n", a ); */
 
 
 	/*srand ( time (NULL));
@@ -153,7 +208,7 @@ int  main ()
 		i++;
 	} */
 	
-	//call function
+	//arithmetic
 /*cout << "¬ведите x:  ";
 cin >> v1;
 cout << "¬ведите y:  ";
