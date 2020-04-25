@@ -2,8 +2,8 @@
 #include<iostream>
 #include<math.h>
 #include<ctime>
-/*#include <stdio.h>
-#include <stdlib.h> */
+#include <stdio.h>
+#include <stdlib.h> 
 
 
 
@@ -137,24 +137,8 @@ void Temp_Func(T1 a, T2 b, T3 c, T4 d)
 	cout << a << N_LINE << b << N_LINE << c << N_LINE << d << N_LINE;
 }*/
 
-
-//I've provided "min" and "max" functions in                                                                                      
-//case they are useful to you                                                                                                     
-int min(int a, int b) {
-	if (a < b) {
-		return a;
-	}
-	return b;
-}
-int max(int a, int b) {
-	if (a > b) {
-		return a;
-	}
-	return b;
-}
-
-//Declare your rectangle structure here!                                                                                          
-struct rect {
+//RECTANGLES                                                                                        
+/*struct rect {
 	int x;
 	int y;
 	int width;
@@ -176,7 +160,6 @@ rectangle canonicalize(rectangle r) {
 		};
 	return r;
 }
-
 
 rectangle intersection(rectangle r1, rectangle r2) {
 	//WRITE THIS FUNCTION   
@@ -227,7 +210,6 @@ rectangle intersection(rectangle r1, rectangle r2) {
 	return r1;
 }
 
-
 //You should not need to modify any code below this line                                                                          
 void printRectangle(rectangle r) {
 	r = canonicalize(r);
@@ -238,13 +220,71 @@ void printRectangle(rectangle r) {
 		printf("(%d,%d) to (%d,%d)\n", r.x, r.y,
 			r.x + r.width, r.y + r.height);
 	}
-}
+} */
 
-int  main (void)
+//RETIRE CULCULATOR
+/*struct _retire_info
+{
+	int months;
+	double contribution;
+	double rate_of_return;
+};
+typedef struct _retire_info retire_info;
+
+
+void retirement(int startAge, double initial, retire_info working, retire_info retired)
+{
+	int end_work = startAge + working.months;
+	int end_retire = end_work + retired.months;
+	for (int i = startAge; i < end_work; i++)
+	{
+		printf("Age %3d month %2d you have $%2.2f\n", startAge / 12, startAge % 12, initial);
+		initial = initial + working.contribution + (initial * working.rate_of_return);
+		startAge++;
+	}
+	for (int i = end_work; i < end_retire; i++)
+	{
+		printf("Age %3d month %2d you have $%2.2f\n", end_work / 12, end_work % 12, initial);
+		initial = initial + retired.contribution + (initial * retired.rate_of_return);
+		end_work++;
+	}
+} */
+
+
+
+
+
+
+  int main(void)
 {
 	setlocale(LC_ALL, "RUS");
 	
-		rectangle r1;
+
+
+
+
+
+
+	//RETIRE CULCULATOR
+	/*int startAge = 327;
+	double savings = 21345;
+	retire_info working;
+	retire_info retired;
+
+	working.months = 489;
+	working.contribution = 1000;
+	working.rate_of_return = 0.045 / 12;
+
+	retired.months = 384;
+	retired.contribution = -4000;
+	retired.rate_of_return = 0.01 / 12;
+
+	retirement (startAge, savings, working, retired);
+
+	return EXIT_SUCCESS; */
+	
+	////RECTANGLES  
+	/*	rectangle r1;
 		rectangle r2;
 		rectangle r3;
 		rectangle r4; 
@@ -345,21 +385,12 @@ int  main (void)
 		printf("intersection(r4,r4): ");
 		printRectangle(i); 
 
-		/*cout << r1.x << "  " << r1.y << "  " << r1.width << "  " << r1.height << endl;
+		cout << r1.x << "  " << r1.y << "  " << r1.width << "  " << r1.height << endl;
 		cout << r2.x << "  " << r2.y << "  " << r2.width << "  " << r2.height << endl;
 		cout << r3.x << "  " << r3.y << "  " << r3.width << "  " << r3.height << endl;
-		cout << r4.x << "  " << r4.y << "  " << r4.width << "  " << r4.height << endl;*/
+		cout << r4.x << "  " << r4.y << "  " << r4.width << "  " << r4.height << endl;
 
-		return EXIT_SUCCESS;
-
-
-
-
-
-
-
-
-
+		return EXIT_SUCCESS; */
 
 	//Template
 	/*Temp_Func(true, 0x2F, 3.849, "WOW!!!");*/
@@ -501,7 +532,6 @@ cin >> v3;
 		}
 		i = 1;
 	} */
-
 
 
 	 /*_ASSERT(hor_vert == 1); */
