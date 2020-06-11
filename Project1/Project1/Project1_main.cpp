@@ -4,537 +4,707 @@
 #include<ctime>
 #include <stdio.h>
 #include <stdlib.h> 
+#include <string> 
+#include <fstream>
 #include "Header.h"
-
-
+#include <list>
+#include "Source.h"
 
 using namespace std;
 
 const char  TAB = '\t';
 const char  N_LINE = '\n';
 
-//arithmetic
-/* int compare (int x, int y, int z)  // сравнение чисел 
-{
-	 x = x % 2;
 
-	if (x > y  &&  y > z) {
-		cout << N_LINE << x << " больше " << y << N_LINE;
-	}
-	else if (x==0) {
-		cout << N_LINE << " х - четное число " ;
-	}
-	else
+
+	//arithmetic
+	/* int compare (int x, int y, int z)  // сравнение чисел
 	{
-		cout << N_LINE <<  " Условия не выполнены! "  << N_LINE;
-	}
+		 x = x % 2;
 
-	return 0;
-} 
-
- int arithmetic (int x, int y, int z)  // арифметические действия
- {
-	cout << N_LINE << "x * y * z = " << (x + 10) * y * z << "\n";
-	cout << N_LINE << "x + y + z = " << x + y + z << "\n";
-	cout << N_LINE << "Среднее арифметическое = " << (x + y + z) / 3 << "\n";
-	cout << N_LINE << x << "\n";
-	return 0;
-}  
-
- int calculon (int x, int y, int z)
- {
-	 switch (x, y, z)
-	 {
-	 case '+':
-		 cout << " = " << x + y ;
-		 break;
-
-	 case '-':
-		 cout << " = " << x - y ;
-		 break;
-
-	 case '*':
-		 cout << " = " << x * y;
-
-	 case '/':
-		 cout << " = " << (float) x / y ;
-		 break;
-	 }
-
-	 return 0;
- } */
-
- //array
-/*void fillArray(int arr [] , const int size )
-{
-		for (int i = 0; i < size; i++)
-		{
-			arr[i] = i;
+		if (x > y  &&  y > z) {
+			cout << N_LINE << x << " больше " << y << N_LINE;
 		}
-}
-
-void printArray ( int arr[], const int size )
-{
-	for (int i = 0; i < size; i++)
-	{
-		cout << arr[i] << endl;
-	}
-} */
-
-//Triangle
-/*int n_stars(int a)
-{
-	int star = 0;
-	for (int i = 0; i < a; i++)
-	{
-		for (int j = 0; j <= i; j++)
-		{
-			cout << "*";
-			star++;
+		else if (x==0) {
+			cout << N_LINE << " х - четное число " ;
 		}
-		cout << "" << N_LINE;
-	}
-	return star;
-}
-*/
-
-//Square
-/*int print_1str (int w, char a)
-{
-	int count_s1 = 0;
-	for (int i = 1; i <= w; i++)
-	{
-		cout << a;
-		count_s1++;
-	}
-	cout << N_LINE;
-	return count_s1 * 2;
-}
-
-//Square
-int print_2str(int h, int w, char a)
-{
-	int str2 = w - 2;
-	int h2 = h - 2;
-	int count_s2 = 0;
-	for (int i = 1; i <= h2; i++)
-	{
-		cout << a;
-		for (int k = 1; k <= str2; k++)
+		else
 		{
-			cout << " ";
-			
+			cout << N_LINE <<  " Условия не выполнены! "  << N_LINE;
 		}
-		cout << a << N_LINE;
-		count_s2++;
-	}
-	return count_s2 * 2;
-} */
 
-//Template
-/*template < class T1, class T2, class T3, class T4 >
-void Temp_Func(T1 a, T2 b, T3 c, T4 d)
-{
-	cout << a << N_LINE << b << N_LINE << c << N_LINE << d << N_LINE;
-}*/
-
-//RECTANGLES                                                                                        
-/*struct rect {
-	int x;
-	int y;
-	int width;
-	int height;
-};
-typedef struct rect rectangle;
-
-rectangle canonicalize(rectangle r) {
-	//WRITE THIS FUNCTION
-		if (r.width < 0)
-		{
-			r.width = r.width + (r.width * -2);
-			r.x = r.x - r.width;
-		};
-		if (r.height < 0)
-		{
-			r.height = r.height + (r.height * -2);
-			r.y = r.y - r.height;
-		};
-	return r;
-}
-
-rectangle intersection(rectangle r1, rectangle r2) {
-	//WRITE THIS FUNCTION   
-	r1 = canonicalize(r1);
-	r2 = canonicalize(r2);
-	int x1_2 = r1.x + r1.width;
-	int x2_2 = r2.x + r2.width;
-	int y1_2 = r1.y + r1.height;
-	int y2_2 = r2.y + r2.height;
-
-	if ((r2.x >= r1.x  &&  x2_2 <= x1_2) && (r2.y >= r1.y  &&  y2_2 <= y1_2))
-	{
-		return r2;
-	}
-	if ((r2.x <= r1.x  &&  x2_2 >= x1_2) && (r2.y <= r1.y  &&  y2_2 >= y1_2))
-	{
-		return r1;
-	}
-	else {
-		if (
-			((r1.x >= r2.x  &&  r1.x <= x2_2) || (x1_2 >= r2.x  &&  x1_2 <= x2_2)) &&
-			((r1.y >= r2.y  &&  r1.y <= y2_2) || (y1_2 >= r2.y  &&  y1_2 <= y2_2))
-			)
-		{
-
-			if (r1.x <= r2.x)
-			{
-				r1.x = r2.x;
-				r1.width = x1_2 - r2.x;
-			}
-			else {
-				r1.width = x2_2 - r1.x;
-			}
-			if (r1.y <= r2.y)
-			{
-				r1.y = r2.y;
-				r1.height = y1_2 - r2.y;
-			}
-			else {
-				r1.height = y2_2 - r1.y;
-			}
-		}
-		else {
-			r1.width = 0;
-			r1.height = 0;
-		}
-	}
-	return r1;
-}
-
-//You should not need to modify any code below this line                                                                          
-void printRectangle(rectangle r) {
-	r = canonicalize(r);
-	if (r.width == 0 && r.height == 0) {
-		printf("<empty>\n");
-	}
-	else {
-		printf("(%d,%d) to (%d,%d)\n", r.x, r.y,
-			r.x + r.width, r.y + r.height);
-	}
-} */
-
-//RETIRE CULCULATOR
-/*struct _retire_info
-{
-	int months;
-	double contribution;
-	double rate_of_return;
-};
-typedef struct _retire_info retire_info;
-
-
-void retirement(int startAge, double initial, retire_info working, retire_info retired)
-{
-	int end_work = startAge + working.months;
-	int end_retire = end_work + retired.months;
-	for (int i = startAge; i < end_work; i++)
-	{
-		printf("Age %3d month %2d you have $%2.2f\n", startAge / 12, startAge % 12, initial);
-		initial = initial + working.contribution + (initial * working.rate_of_return);
-		startAge++;
-	}
-	for (int i = end_work; i < end_retire; i++)
-	{
-		printf("Age %3d month %2d you have $%2.2f\n", end_work / 12, end_work % 12, initial);
-		initial = initial + retired.contribution + (initial * retired.rate_of_return);
-		end_work++;
-	}
-} */
-
-//Recuirse
-/*int recuirse(int a)
-{
-	if (a == 0)
-	{
 		return 0;
 	}
- if (a == 1)
-{
-	return 1;
-}
- return a * recuirse(a - 1);
-} */
 
-// CARDS Course 2
-/*void assert_card_valid(card_t c) 
-{
-	if (c.value >= 2 && c.value <= VALUE_ACE); 
-	_ASSERT(c.value != 0); //c.value != 0
-	
-	if (c.suit >= SPADES && c.suit <= CLUBS);
-	_ASSERT(c.suit != NUM_SUITS);
-}
-
-const char * ranking_to_string(hand_ranking_t r) {
-	switch (r)
-	{
-	case STRAIGHT_FLUSH: return "STRAIGHT FLUSH"; break;
-	case FOUR_OF_A_KIND: return "FOUR OF A KIND"; break;
-	case FULL_HOUSE: return "FULL HOUSE"; break;
-	case FLUSH: return "FLUSH"; break;
-	case STRAIGHT: return "STRAIGHT"; break;
-	case THREE_OF_A_KIND: return "THREE OF A KIND"; break;
-	case TWO_PAIR: return "TWO PAIR"; break;
-	case PAIR: return "PAIR"; break;
-	case NOTHING: return "NOTHING"; break;
-	}
-	return 0;
-}
-
-char value_letter(card_t c) 
-{
-	if (c.value == 10)
-	{
-		return 48;
-	}
-	if (c.value >= 2  &&  c.value <= 9)
-	{
-		return 48 + c.value;
-	}
-	if (c.value == VALUE_ACE)
-	{
-		return 'A';
-	}
-	if (c.value == VALUE_KING)
-	{
-		return 'K';
-	}
-	if (c.value == VALUE_QUEEN)
-	{
-		return 'Q';
-	}
-	if (c.value == VALUE_JACK)
-	{
-		return 'J';
-	}
-	return 0;
-}
-
-
-char suit_letter(card_t c) {
-	switch (c.suit)
-	{
-	case SPADES: return 's'; break;
-	case HEARTS: return 'h'; break;
-	case DIAMONDS: return 'd'; break;
-	case CLUBS: return 'c'; break;
-	case NUM_SUITS: return '?';
-	} 
-	return 0;
-}
-
- void print_card(card_t c) 
- {
-	 printf("%c%c" , value_letter(c), suit_letter(c));
-}
-
-card_t card_from_letters(char value_let, char suit_let) 
-{
-	card_t temp;
-	switch (value_let)
-	{
-	case '0': temp.value = 10; break;
-	case '1': temp.value = 1; break;
-	case '2': temp.value = 2; break;
-	case '3': temp.value = 3; break;
-	case '4': temp.value = 4; break;
-	case '5': temp.value = 5; break;
-	case '6': temp.value = 6; break;
-	case '7': temp.value = 7; break;
-	case '8': temp.value = 8; break;
-	case '9': temp.value = 9; break;
-	case 'A': temp.value = VALUE_ACE; break;
-	case 'K': temp.value = VALUE_KING; break;
-	case 'Q': temp.value = VALUE_QUEEN; break;
-	case 'J': temp.value = VALUE_JACK; break;
-	default:  temp.value = 0;
+	 int arithmetic (int x, int y, int z)  // арифметические действия
+	 {
+		cout << N_LINE << "x * y * z = " << (x + 10) * y * z << "\n";
+		cout << N_LINE << "x + y + z = " << x + y + z << "\n";
+		cout << N_LINE << "Среднее арифметическое = " << (x + y + z) / 3 << "\n";
+		cout << N_LINE << x << "\n";
+		return 0;
 	}
 
-	switch  (suit_let)
+	 int calculon (int x, int y, int z)
+	 {
+		 switch (x, y, z)
+		 {
+		 case '+':
+			 cout << " = " << x + y ;
+			 break;
+
+		 case '-':
+			 cout << " = " << x - y ;
+			 break;
+
+		 case '*':
+			 cout << " = " << x * y;
+
+		 case '/':
+			 cout << " = " << (float) x / y ;
+			 break;
+		 }
+
+		 return 0;
+	 } */
+
+	 //array
+	/*void fillArray(int arr [] , const int size )
 	{
-	case 's': temp.suit = SPADES; break; //s
-	case 'h': temp.suit = HEARTS; break; //h
-	case 'd': temp.suit = DIAMONDS; break; //d
-	case 'c': temp.suit = CLUBS; break; //c
-	default:  temp.suit = NUM_SUITS;
+			for (int i = 0; i < size; i++)
+			{
+				arr[i] = i;
+			}
+	}
+
+	void printArray ( int arr[], const int size )
+	{
+		for (int i = 0; i < size; i++)
+		{
+			cout << arr[i] << endl;
+		}
+	} */
+
+	//Triangle
+	/*int n_stars(int a)
+	{
+		int star = 0;
+		for (int i = 0; i < a; i++)
+		{
+			for (int j = 0; j <= i; j++)
+			{
+				cout << "*";
+				star++;
+			}
+			cout << "" << N_LINE;
+		}
+		return star;
+	}
+	*/
+
+	//Square
+	/*int print_1str (int w, char a)
+	{
+		int count_s1 = 0;
+		for (int i = 1; i <= w; i++)
+		{
+			cout << a;
+			count_s1++;
+		}
+		cout << N_LINE;
+		return count_s1 * 2;
+	}
+
+	//Square
+	int print_2str(int h, int w, char a)
+	{
+		int str2 = w - 2;
+		int h2 = h - 2;
+		int count_s2 = 0;
+		for (int i = 1; i <= h2; i++)
+		{
+			cout << a;
+			for (int k = 1; k <= str2; k++)
+			{
+				cout << " ";
+
+			}
+			cout << a << N_LINE;
+			count_s2++;
+		}
+		return count_s2 * 2;
+	} */
+
+	//Template
+	/*template < class T1, class T2, class T3, class T4 >
+	void Temp_Func(T1 a, T2 b, T3 c, T4 d)
+	{
+		cout << a << N_LINE << b << N_LINE << c << N_LINE << d << N_LINE;
+	}*/
+
+	//RECTANGLES                                                                                        
+	/*struct rect {
+		int x;
+		int y;
+		int width;
+		int height;
 	};
+	typedef struct rect rectangle;
 
-	assert_card_valid (temp);
-	return temp;
-}
-
-card_t card_from_num(unsigned c) 
-{
-	card_t temp;
-	int num_suit = c / 13;
-	int num_value = c % 13;
-
-	if (num_suit <= 3)
-	{
-		if (num_value >= 0 && num_value <= 8)
-		{
-			temp.value = num_value + 2;
-		}
-		if (num_value == 9)
-		{
-			temp.value = VALUE_JACK;
-		}
-		if (num_value == 10)
-		{
-			temp.value = VALUE_QUEEN;
-		}
-		if (num_value == 11)
-		{
-			temp.value = VALUE_KING;
-		}
-		if (num_value == 12)
-		{
-			temp.value = VALUE_ACE;
-		}
-
-		switch (num_suit)
-		{
-		case 0: temp.suit = SPADES; break;
-		case 1: temp.suit = HEARTS; break;
-		case 2: temp.suit = DIAMONDS; break;
-		case 3: temp.suit = CLUBS; break;
-		}
-	}
-	else
-	{
-		temp.value = num_value + 2;
-		temp.suit = NUM_SUITS;
-	}
-	assert_card_valid(temp);
-	return temp;
-}  */
-
-//Assignment 11 Course 3
-/*void g(int x, int * y) {
-	printf("In g, x = %d, *y = %d\n", x, *y);
-	x++;
-	*y = *y - x;
-	y = &x;
-}
-
-void f(int * a, int b) {
-	printf("In f, *a = %d, b = %d\n", *a, b);
-	*a += b;
-	b *= 2;
-	g(*a, &b);
-	printf("Back in f, *a = %d, b = %d\n", *a, b);
-} */
-
-//Assignment 12 Course 3
-/*int f(int ** r, int ** s) {
-	int temp = ** r;
-	int temp2 = **s;
-	int * z = *r;
-	*r = *s;
-	*s = z;
-	printf("**r = %d\n", **r);
-	printf("**s = %d\n", **s);
-	*z += 3;
-	**s -= 8;
-	**r -= 19;
-	return temp + temp2;
-} */
-
-//SWAP
-  /*template <typename T1, typename T2> 
-void swap(T1 &pa, T2 &pb)
-{
-	int temp = pa;
-	pa = pb;
-	pb = temp;
-
-} */
-
-//Array
-/*int SumArray(int *arr, int n)
-{
-	int answer = 0;
-	for (int i = 0; i < n; i++)
-	{
-		answer = answer + arr[i];
-	}
-	return answer;
-} */
-
-//Array MAX
-  /*int * arrayMax(int * array, int n) 
-{
-	if (n == 0)
-	{
-		return NULL;
+	rectangle canonicalize(rectangle r) {
+		//WRITE THIS FUNCTION
+			if (r.width < 0)
+			{
+				r.width = r.width + (r.width * -2);
+				r.x = r.x - r.width;
+			};
+			if (r.height < 0)
+			{
+				r.height = r.height + (r.height * -2);
+				r.y = r.y - r.height;
+			};
+		return r;
 	}
 
-	int *largest = array;
-	for (int i = 1; i < n; i++)
-	{
-		if ( *(array + i) > *largest)
-		{
-			*largest = *(array + i);
-		}
-	}
-	return largest;
-}*/
+	rectangle intersection(rectangle r1, rectangle r2) {
+		//WRITE THIS FUNCTION
+		r1 = canonicalize(r1);
+		r2 = canonicalize(r2);
+		int x1_2 = r1.x + r1.width;
+		int x2_2 = r2.x + r2.width;
+		int y1_2 = r1.y + r1.height;
+		int y2_2 = r2.y + r2.height;
 
-//Assignment 13 Course 3
-  /*void doTest(int * array, int n) {
-	printf("arrayMax(");
-	if (array == NULL) {
-		printf("NULL");
-	}
-	else {
-		printf("{");
-		for (int i = 0; i < n; i++) {
-			printf("%d", array[i]);
-			if (i < n - 1) {
-				printf(", ");
+		if ((r2.x >= r1.x  &&  x2_2 <= x1_2) && (r2.y >= r1.y  &&  y2_2 <= y1_2))
+		{
+			return r2;
+		}
+		if ((r2.x <= r1.x  &&  x2_2 >= x1_2) && (r2.y <= r1.y  &&  y2_2 >= y1_2))
+		{
+			return r1;
+		}
+		else {
+			if (
+				((r1.x >= r2.x  &&  r1.x <= x2_2) || (x1_2 >= r2.x  &&  x1_2 <= x2_2)) &&
+				((r1.y >= r2.y  &&  r1.y <= y2_2) || (y1_2 >= r2.y  &&  y1_2 <= y2_2))
+				)
+			{
+
+				if (r1.x <= r2.x)
+				{
+					r1.x = r2.x;
+					r1.width = x1_2 - r2.x;
+				}
+				else {
+					r1.width = x2_2 - r1.x;
+				}
+				if (r1.y <= r2.y)
+				{
+					r1.y = r2.y;
+					r1.height = y1_2 - r2.y;
+				}
+				else {
+					r1.height = y2_2 - r1.y;
+				}
+			}
+			else {
+				r1.width = 0;
+				r1.height = 0;
 			}
 		}
-		printf("}");
+		return r1;
 	}
-	printf(", %d) is \n", n);
-	int * p = arrayMax(array, n);
-	if (p == NULL) {
-		printf("NULL\n");
-	}
-	else {
-		printf("%d\n", *p);
-	}
-}*/
 
+	//You should not need to modify any code below this line
+	void printRectangle(rectangle r) {
+		r = canonicalize(r);
+		if (r.width == 0 && r.height == 0) {
+			printf("<empty>\n");
+		}
+		else {
+			printf("(%d,%d) to (%d,%d)\n", r.x, r.y,
+				r.x + r.width, r.y + r.height);
+		}
+	} */
 
-size_t maxSeq(int * arrayLenght, size_t n)
-{
-	size_t maxLenSeq = *arrayLenght;
-	int *arr_1 = arrayLenght;
-	//int sizeArrLen = sizeof(arrayLenght) / sizeof(arrayLenght[0]);
-	for (int i = 1; i < n; i++)
+	//RETIRE CULCULATOR
+	/*struct _retire_info
 	{
-		if ( *(arr_1 + i) > *arr_1)
-		//if (arrayLenght[i + 1] > arrayLenght[i])
+		int months;
+		double contribution;
+		double rate_of_return;
+	};
+	typedef struct _retire_info retire_info;
+
+
+	void retirement(int startAge, double initial, retire_info working, retire_info retired)
+	{
+		int end_work = startAge + working.months;
+		int end_retire = end_work + retired.months;
+		for (int i = startAge; i < end_work; i++)
 		{
-			maxLenSeq = *(arr_1 + i);
-			//maxLenSeq = arrayLenght[i + 1];
+			printf("Age %3d month %2d you have $%2.2f\n", startAge / 12, startAge % 12, initial);
+			initial = initial + working.contribution + (initial * working.rate_of_return);
+			startAge++;
+		}
+		for (int i = end_work; i < end_retire; i++)
+		{
+			printf("Age %3d month %2d you have $%2.2f\n", end_work / 12, end_work % 12, initial);
+			initial = initial + retired.contribution + (initial * retired.rate_of_return);
+			end_work++;
+		}
+	} */
+
+	//Recuirse
+	/*int recuirse(int a)
+	{
+		if (a == 0)
+		{
+			return 0;
+		}
+	 if (a == 1)
+	{
+		return 1;
+	}
+	 return a * recuirse(a - 1);
+	} */
+
+	// CARDS Course 2
+	/*void assert_card_valid(card_t c)
+	{
+		if (c.value >= 2 && c.value <= VALUE_ACE);
+		_ASSERT(c.value != 0); //c.value != 0
+
+		if (c.suit >= SPADES && c.suit <= CLUBS);
+		_ASSERT(c.suit != NUM_SUITS);
+	}
+
+	const char * ranking_to_string(hand_ranking_t r) {
+		switch (r)
+		{
+		case STRAIGHT_FLUSH: return "STRAIGHT FLUSH"; break;
+		case FOUR_OF_A_KIND: return "FOUR OF A KIND"; break;
+		case FULL_HOUSE: return "FULL HOUSE"; break;
+		case FLUSH: return "FLUSH"; break;
+		case STRAIGHT: return "STRAIGHT"; break;
+		case THREE_OF_A_KIND: return "THREE OF A KIND"; break;
+		case TWO_PAIR: return "TWO PAIR"; break;
+		case PAIR: return "PAIR"; break;
+		case NOTHING: return "NOTHING"; break;
+		}
+		return 0;
+	}
+
+	char value_letter(card_t c)
+	{
+		if (c.value == 10)
+		{
+			return 48;
+		}
+		if (c.value >= 2  &&  c.value <= 9)
+		{
+			return 48 + c.value;
+		}
+		if (c.value == VALUE_ACE)
+		{
+			return 'A';
+		}
+		if (c.value == VALUE_KING)
+		{
+			return 'K';
+		}
+		if (c.value == VALUE_QUEEN)
+		{
+			return 'Q';
+		}
+		if (c.value == VALUE_JACK)
+		{
+			return 'J';
+		}
+		return 0;
+	}
+
+
+	char suit_letter(card_t c) {
+		switch (c.suit)
+		{
+		case SPADES: return 's'; break;
+		case HEARTS: return 'h'; break;
+		case DIAMONDS: return 'd'; break;
+		case CLUBS: return 'c'; break;
+		case NUM_SUITS: return '?';
+		}
+		return 0;
+	}
+
+	 void print_card(card_t c)
+	 {
+		 printf("%c%c" , value_letter(c), suit_letter(c));
+	}
+
+	card_t card_from_letters(char value_let, char suit_let)
+	{
+		card_t temp;
+		switch (value_let)
+		{
+		case '0': temp.value = 10; break;
+		case '1': temp.value = 1; break;
+		case '2': temp.value = 2; break;
+		case '3': temp.value = 3; break;
+		case '4': temp.value = 4; break;
+		case '5': temp.value = 5; break;
+		case '6': temp.value = 6; break;
+		case '7': temp.value = 7; break;
+		case '8': temp.value = 8; break;
+		case '9': temp.value = 9; break;
+		case 'A': temp.value = VALUE_ACE; break;
+		case 'K': temp.value = VALUE_KING; break;
+		case 'Q': temp.value = VALUE_QUEEN; break;
+		case 'J': temp.value = VALUE_JACK; break;
+		default:  temp.value = 0;
+		}
+
+		switch  (suit_let)
+		{
+		case 's': temp.suit = SPADES; break; //s
+		case 'h': temp.suit = HEARTS; break; //h
+		case 'd': temp.suit = DIAMONDS; break; //d
+		case 'c': temp.suit = CLUBS; break; //c
+		default:  temp.suit = NUM_SUITS;
+		};
+
+		assert_card_valid (temp);
+		return temp;
+	}
+
+	card_t card_from_num(unsigned c)
+	{
+		card_t temp;
+		int num_suit = c / 13;
+		int num_value = c % 13;
+
+		if (num_suit <= 3)
+		{
+			if (num_value >= 0 && num_value <= 8)
+			{
+				temp.value = num_value + 2;
+			}
+			if (num_value == 9)
+			{
+				temp.value = VALUE_JACK;
+			}
+			if (num_value == 10)
+			{
+				temp.value = VALUE_QUEEN;
+			}
+			if (num_value == 11)
+			{
+				temp.value = VALUE_KING;
+			}
+			if (num_value == 12)
+			{
+				temp.value = VALUE_ACE;
+			}
+
+			switch (num_suit)
+			{
+			case 0: temp.suit = SPADES; break;
+			case 1: temp.suit = HEARTS; break;
+			case 2: temp.suit = DIAMONDS; break;
+			case 3: temp.suit = CLUBS; break;
+			}
+		}
+		else
+		{
+			temp.value = num_value + 2;
+			temp.suit = NUM_SUITS;
+		}
+		assert_card_valid(temp);
+		return temp;
+	}  */
+
+	//Assignment 11 Course 3
+	/*void g(int x, int * y) {
+		printf("In g, x = %d, *y = %d\n", x, *y);
+		x++;
+		*y = *y - x;
+		y = &x;
+	}
+
+	void f(int * a, int b) {
+		printf("In f, *a = %d, b = %d\n", *a, b);
+		*a += b;
+		b *= 2;
+		g(*a, &b);
+		printf("Back in f, *a = %d, b = %d\n", *a, b);
+	} */
+
+	//Assignment 12 Course 3
+	/*int f(int ** r, int ** s) {
+		int temp = ** r;
+		int temp2 = **s;
+		int * z = *r;
+		*r = *s;
+		*s = z;
+		printf("**r = %d\n", **r);
+		printf("**s = %d\n", **s);
+		*z += 3;
+		**s -= 8;
+		**r -= 19;
+		return temp + temp2;
+	} */
+
+	//SWAP
+	  /*template <typename T1, typename T2>
+	void swap(T1 &pa, T2 &pb)
+	{
+		int temp = pa;
+		pa = pb;
+		pb = temp;
+
+	} */
+
+	//Array
+	/*int SumArray(int *arr, int n)
+	{
+		int answer = 0;
+		for (int i = 0; i < n; i++)
+		{
+			answer = answer + arr[i];
+		}
+		return answer;
+	} */
+
+	//Array MAX
+	  /*int * arrayMax(int * array, int n)
+	{
+		if (n == 0)
+		{
+			return NULL;
+		}
+
+		int *largest = array;
+		for (int i = 1; i < n; i++)
+		{
+			if ( *(array + i) > *largest)
+			{
+				*largest = *(array + i);
+			}
+		}
+		return largest;
+	}*/
+
+	//Assignment 13 Course 3
+	  /*void doTest(int * array, int n) {
+		printf("arrayMax(");
+		if (array == NULL) {
+			printf("NULL");
+		}
+		else {
+			printf("{");
+			for (int i = 0; i < n; i++) {
+				printf("%d", array[i]);
+				if (i < n - 1) {
+					printf(", ");
+				}
+			}
+			printf("}");
+		}
+		printf(", %d) is \n", n);
+		int * p = arrayMax(array, n);
+		if (p == NULL) {
+			printf("NULL\n");
+		}
+		else {
+			printf("%d\n", *p);
+		}
+	}*/
+
+	//Assignment 16 Course 3
+	 /*size_t maxSeq(int * array, size_t n)
+	{
+		int *pArr = array;
+		size_t maxLenSeq = 0;
+		size_t curLenSeq = 0;
+
+		if (n < 1)
+		{
+			return maxLenSeq = 0;
+		}
+
+		for (size_t i = 0; i < n; i++)
+		{
+			for (size_t j = 0; pArr[i + 1] > pArr[i] && i < n; j++)
+			{
+				curLenSeq = j + 2;
+				i++;
+			}
+
+
+			if (curLenSeq > maxLenSeq)
+			{
+				maxLenSeq = curLenSeq;
+			}
+			if (maxLenSeq == 0)
+			{
+				maxLenSeq = 1;
+			}
+
+		}
+
+		return maxLenSeq;
+	}*/
+
+	//Assignment 16 Course 
+	  /*void printArr (int * array, size_t n)
+	 {
+		 cout << "Array  { ";
+		 for (size_t i = 0; i < n; i++)
+		 {
+			 cout << array[i] << ", ";
+		}
+		 cout << "}";
+		 cout << endl << "Size of array:\t" << n << endl;
+		 cout << "Max seq lenght:\t" << maxSeq (array, n) << endl;
+	 }*/
+
+	 /*void arrSquere(int arr[][8], const size_t row, const size_t colm)
+	{
+		for (size_t i = 0; i < row; i++)
+		{
+			for (size_t j = 0; j < colm; j++)
+			{
+				arr[i][j] = j * j;
+			}
 		}
 	}
-	return maxLenSeq;
+	typedef arrSquere(*arrSquere);*/
+
+	//ARRAY Dynamic
+	 /*template <typename T1, typename T2>
+	 void printArr(T1* arr, const T2 colm)
+	{
+			 for (T2 j = 0; j < colm; j++)
+			 {
+				 cout << arr[j] << "\t";
+			 }
+			 cout << endl;
+	}
+
+	  void fillArr (int arr[], const size_t colm)
+	 {
+			 for (size_t j = 0; j < colm; j++)
+			 {
+				 srand(j + (300*j));
+				 arr[j] =rand()%4000;
+			 }
+	 }*/
+
+	 //FUNCTION POINTER
+	  /*int Sum()
+	 {
+		 return 5 + 7;
+	  }
+
+	 double Squere()
+	 {
+		 return 3.4 * 4.78;
+	 }
+
+	 string Text()
+	 {
+		 return "Some text";
+	 }
+
+	 template <typename T1> void Output ( T1 (* out) ())
+	 {
+		 cout << out() << endl;
+	 }*/
+
+
+
+class Test
+{
+private:
+	int x;
+	int y;
+	//friend void Test(Building &build);
+};
+
+class Building
+{
+private:
+
+	string Object_Name = "wewr";
+	double Object_Squere;
+	int Object_Number_Flats;
+	double Object_General_Squere;
+
+public:
+
+	//Constructor
+	Building(string Obj_Name , double Obj_Squere , int Obj_Number_Flats )
+	{
+		Object_Name = Obj_Name;
+		Object_Squere = Obj_Squere;
+		Object_Number_Flats = Obj_Number_Flats;
+	}
+
+	//Default Constructor
+	Building() 
+	{
+	}
+
+	//Destructor
+	~Building()
+	{
+
+	}
+
+	//Setter
+	void Set_Name(string Obj_Name)
+	{
+		Object_Name = Obj_Name;
+	}
+	 
+	//Getter
+	string Get_Name()
+	{
+		cout << Object_Name << endl;
+		return Object_Name;
+	}
+
+	//Method
+	void Print_Parameters()
+	{
+		//cout << "Object Name: \t" << Object_Name << endl;
+		cout << "================== " << this << " ===============" << endl;
+		cout << "Object Name: \t" << Object_Name << endl << "Object Squere: \t" << Object_Squere << endl << "Object Number Flats: \t" << Object_Number_Flats << endl;
+		cout << "Object GENERAL SQUERE: \t" << Gen_Squere(Object_Squere, Object_Number_Flats) << endl << endl;
+		
+	}
+
+private:
+	//Method
+	double Gen_Squere(double Obj_Squere, int Obj_NumFlats)
+	{
+		return Obj_Squere * Obj_NumFlats;
+	}
+};
+
+
+template <typename T1> 
+ void PrintVal (T1 &build)
+{
+	 build. Print_Parameters();
+
 }
 
-	
+
+ void Function()
+ {
+	 Building a;
+ }
 
 
 
@@ -543,72 +713,92 @@ int main(void)
 {
 	setlocale(LC_ALL, "RUS");
 
-
-		int array[] = { 1000,500,100,55,22,11,1,0 };
-		
-		int *pArr = array;
-		size_t maxLenSeq = 0;
-	    size_t curLenSeq = 0;
-		int sizeArray = sizeof(array) / sizeof(array[0]);
-	
-		if (sizeArray == 0)
-		{
-			return maxLenSeq = 0;
-		}
-	
-			for (size_t i = 0; i < sizeArray; i++)
-			{
-					for ( size_t j = 0;  pArr[ i + 1] > pArr[i] &&  i < sizeArray;  j++ )
-					{
-						curLenSeq = j + 2;
-						i++;
-					}
-	
-			
-				if (curLenSeq > maxLenSeq)
-				{
-					maxLenSeq = curLenSeq;
-				}
-				if (maxLenSeq == 0)
-				{
-					maxLenSeq = 1;
-				}
-	
-				/*if (arrayLenght[0] > maxLenSeq)
-				{
-					maxLenSeq = arrayLenght[0];
-				}
-				if (arrayLenght[0] == 0)
-				{
-					maxLenSeq = 1;
-				} */
-	
-			}
-			
-		/*for (int s = 0; s < 2; s++)
-		{
-			cout << arrayLenght[s] << " ";
-		}*/
-	
-		cout << endl << "Max lenght in number:\t" << maxLenSeq << endl;
-		cout << "Size of array:\t" << sizeArray << endl;
-		
-		return maxLenSeq;
-		 //return EXIT_SUCCESS;
-	}
+	Starting(3);
 
 
-	/*int arr[500]{};
-	for (int i = 0; i < 500; i++)
-	{
-		arr[i] = i;
-		cout << i <<", ";
-	}
-}*/
+	//CreateObject("erwe", 343);
 
+
+	//Building Office1 ("Build", 364.54, 98);
+	////Office1.Set_Name("Building 1");
+	//Office1.Print_Parameters();
+	////Office1.Get_Name();
+
+	//Building *Office2 = new Building ("Build #123", 178.02, 112);
+	//Office2 -> Print_Parameters();
+	//delete Office2;
+	//
+	//Building Office3 = Office1;
+	//Office3.Print_Parameters();
+	//PrintVal(Office3);
+
+	
+
+
+
+
+
+		 return EXIT_SUCCESS;
+	
+
+
+		 // FILE Input/Output
+		 /*ifstream input_File;
+		 input_File.open("C:\\Users\\Алекс\\Desktop\\C++ Assignment 2.2 Review.txt");
+
+		 if (!input_File.is_open())
+		 {
+			 cout << "Can't read file!" << endl;
+		 }
+		 else
+		 {
+			 cout << "============== Reading success! ================" << endl << endl;
+			 string str;
+			 while (!input_File.eof())
+			 {
+				 getline(input_File, str);
+				 cout << str << endl;
+			 }
+			 input_File.close();
+		 }*/
+
+		 //READ FILE
+			  /*ofstream file_out;
+			 file_out.open("C:\\Users\\Алекс\\Desktop\\Тест.txt", ofstream::app);
+
+			 cout << "Enter code..." << endl;
+			 string fOut;
+			 cin >> fOut;
+			 file_out << "  " << fOut;
+			 file_out.close();*/
+
+//FUNCTION POINTER
+/*Output(Sum); */
+
+ //STRING
+/*string str1 = "dfgdfgdf";
+ string str2 = "dfgdfgfgdfgdf";
+ cout << str1 + " !! " + str2 + " ^^ " << endl;
+ char string [] = "Hello";*/
+
+ //ARRAY Dynamic
+ /*const size_t row = 2;
+			 const size_t colm = 8;
+			 int array1[] =  {1000,500,100,55,22,11,1,0};
+			 size_t sizeArr = sizeof(array1) / sizeof(array1[0]);
+
+			 size_t size = 0;
+			 cin >> size;
+			 int *arr = new int [size];
+
+			 fillArr (arr, size);
+			 printArr(arr, size);
+
+			 delete[] arr;
+			 arr = nullptr;*/
 
 //Assignment 13 Course 3
-	/*doTest(array1, 8);
+/*doTest(array1, 8);
 	doTest(array2, 7);
 	doTest(array3, 6);
 	doTest(NULL, 0);
@@ -959,3 +1149,4 @@ cin >> v3;
 
 	 /*_ASSERT(hor_vert == 1); */
 
+}
